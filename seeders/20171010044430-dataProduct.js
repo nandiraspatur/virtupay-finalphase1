@@ -24,7 +24,6 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     queryInterface.bulkDelete('Products', null, {
-
     })
     /*
       Add reverting commands here.

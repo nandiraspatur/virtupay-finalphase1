@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+
+    <body>
+        <%include partial/navbar.ejs%>
+            <div class="form">
+                <form class="register-form" action="/users/add" method="POST">
+                    <input type="text" name="name" placeholder="Nama Lengkap" />
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <button>Save</button>
+
+                </form>
+            </div>
+    </body>
+
+</html>
