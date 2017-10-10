@@ -16,10 +16,10 @@ router.get('/', function (req, res) {
     })
 })
 
-router.get('/add', function (req, res) {
+router.get('/signup', function (req, res) {
     res.render('user-add', { title: 'Add Data User' })
 })
-router.post('/add', function (req, res) {
+router.post('/signup', function (req, res) {
     let password = req.body.password
     let secret = getSecret(20);
     let newPassword = getEncrypt(password, secret);
