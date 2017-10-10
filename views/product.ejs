@@ -3,6 +3,25 @@
   <%include partial/head.ejs%>
   <body>
     <%include partial/navbar.ejs%>
-
+      <table class="main-table">
+        <tr>
+          <th>Nama Product</th>
+          <th>Provider</th>
+          <th>Nominal</th>
+          <th>Tipe Produk</th>
+          <th>Opsi</th>
+        </tr>
+        <%products.forEach(product=>{%>
+          <tr>
+            <td><%=product.productName%></td>
+            <td><%=product.provider%></td>
+            <td><%=product.nominal%></td>
+            <td><%=product.productType%></td>
+            <th><a href="/products/edit/<%=product.id%>">edit</a></th>
+            <th><a href="/products/delete/<%=product.id%>">delete</a></th>
+          </tr>
+        <%})%>
+      </table>
+      <a href="/products/add">add product</a>
   </body>
 </html>

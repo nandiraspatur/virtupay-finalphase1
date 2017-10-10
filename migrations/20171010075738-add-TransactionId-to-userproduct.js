@@ -2,31 +2,22 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    queryInterface.bulkInsert('UserProducts', [{
-      UserId: "1",
-      ProductId: "1",
-      TransactionId: "1"
-    }])
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
+      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
   },
 
   down: (queryInterface, Sequelize) => {
-    queryInterface.bulkDelete('UserProducts', null, {})
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkDelete('Person', null, {});
+      return queryInterface.dropTable('users');
     */
   }
 };

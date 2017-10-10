@@ -2,15 +2,12 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    queryInterface.bulkInsert('Transactions', [
-      {
-        UserProductId: 1,
-        nota: '001A',
-        total: '105000',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    ])
+    queryInterface.bulkInsert('Transactions', [{
+      UserProductId: 1,
+      nota: '001A',
+      total: '105000',
+      status: 'proses',
+    }])
 
     /*
       Add altering commands here.

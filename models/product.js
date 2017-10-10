@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     productType: DataTypes.STRING,
     provider: DataTypes.STRING,
     nominal: DataTypes.STRING,
-    productName: DataTypes.STRING
+    productName: DataTypes.STRING,
+    price: DataTypes.STRING
   })
   Product.associate = model => {
       Product.belongsToMany(model.User, {through : 'UserProduct'});
@@ -13,3 +14,4 @@ module.exports = (sequelize, DataTypes) => {
   }
   return Product;
 };
+

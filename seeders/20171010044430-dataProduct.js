@@ -2,16 +2,14 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    queryInterface.bulkInsert('Products', [
-      {
-        productType : 'Kuota Internet',
-        provider : "Telkomsel",
-        nominal : "100000",
-        productName : "Kuota Internet 100GB",
-        price : "105000"
-        
-      }
-    ])
+    queryInterface.bulkInsert('Products', [{
+      productType: "Pulsa",
+      provider: "Simpati",
+      nominal: "25000",
+      productName: "Simpati25",
+      price: "270000"
+
+    }])
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -26,7 +24,6 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     queryInterface.bulkDelete('Products', null, {
-      
     })
     /*
       Add reverting commands here.
