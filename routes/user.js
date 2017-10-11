@@ -6,6 +6,7 @@ const getSecret = require('../helper/secret')
 const getEncrypt = require('../helper/encrypt')
 const getDecrypt = require('../helper/decrypt')
 
+<<<<<<< HEAD
 // router.use('/', function (req, res) {
 //     res.render('users', {title : ""})
 // })
@@ -20,25 +21,43 @@ router.get('/login', function (req, res) {
     res.render('login', { title: 'Login' })
 })
 
+=======
+>>>>>>> origin/login-session
 router.get('/signup', function (req, res) {
-    res.render('user-add', { title: 'Add Data User' })
+    res.render('user-add', { title: 'Add Data User', session: req.session.role })
 })
 router.post('/signup', function (req, res) {
     let password = req.body.password
     let secret = getSecret(20);
     let newPassword = getEncrypt(password, secret);
-
+    req.session.role = req.body.role;
     Model.User.create({
         name: req.body.name,
         username: req.body.username,
         password: newPassword,
         salt: secret,
-        role: 'admin'
+        role: req.body.role
     }).then(result => {
-        res.redirect('../users')
+        res.render('login', { message: 'Anda telah terdaftar, silahkan login menggunakan password dan username Anda!', title: 'Welcome' })
     })
 
 })
+
+router.use('/', function (req, res, next) {
+    if (req.session.role == 'admin' || req.session.role == 'customer') {
+        next()
+
+    } else {
+        res.redirect('/login')
+    }
+})
+router.get('/', function (req, res) {
+    Model.User.findAll().then((result) => {
+        res.render('user', { dataUser: result, title: 'Data User', session: req.session.role })
+    })
+})
+
+
 router.get('/edit/:id', function (req, res) {
     let passwordEncrypt;
     let passwordDecrypt;
