@@ -6,6 +6,23 @@ const getSecret = require('../helper/secret')
 const getEncrypt = require('../helper/encrypt')
 const getDecrypt = require('../helper/decrypt')
 
+<<<<<<< HEAD
+=======
+// router.use('/', function (req, res) {
+//     res.render('users', {title : ""})
+// })
+
+router.get('/', function (req, res) {
+    Model.User.findAll().then((result) => {
+        res.render('user', { dataUser: result, title: 'Data User' })
+    })
+})
+
+router.get('/login', function (req, res) {
+    res.render('login', { title: 'Login' })
+})
+
+>>>>>>> master
 router.get('/signup', function (req, res) {
     res.render('user-add', { title: 'Add Data User', session: req.session.role })
 })

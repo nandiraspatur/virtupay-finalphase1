@@ -4,6 +4,7 @@
 
     <body>
         <%include partial/navbar.ejs%>
+<<<<<<< HEAD
             <% if(session == 'admin') { %>
                 <div class="form">
                     <form class="register-form" action="/users/signup" method="POST">
@@ -31,6 +32,15 @@
                     </div>
 
                     <%}%>
+=======
+        <%include partial/dashboard.ejs%>
+            <div class="form">
+                <form class="register-form" action="/users/signup" method="POST">
+                    <input type="text" name="name" placeholder="Nama Lengkap" />
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <button>Simpan</button>
+>>>>>>> master
 
     </body>
 

@@ -15,7 +15,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 const index = require('./routes/index');
-const login = require('./routes/login');
 const user = require('./routes/user');
 const product = require('./routes/product');
 const userproduct = require('./routes/userproduct');
@@ -30,7 +29,6 @@ function authentication(req, res, next) {
 }
 app.use('/', index);
 app.use('/users', user);
-app.use('/login', login);
 app.use('/products', product);
 app.use('/userproducts', userproduct);
 app.use('/transactions', transaction);
