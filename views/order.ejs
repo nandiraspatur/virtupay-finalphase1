@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+    <body>
+        <%include partial/navbar.ejs%>
+            <div class="form">
+                <form class="register-form" action="/users/signup" method="POST">
+                    <select name="productType">
+                      <option value="">Pilih Jenis Produk</option>
+                      <option value="">Pilih Provider</option>
+                      <option value="">Pilih Nominal</option>
+                    </select>
+                    <input type="text" name="" placeholder="No. Handphone">
+                    <button>Pesan</button>
+                </form>
+            </div>
+    </body>
+
+</html>

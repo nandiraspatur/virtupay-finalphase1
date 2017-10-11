@@ -8,6 +8,12 @@ router.get('/', function (req, res) {
   })
 })
 
+router.get('/detail', function (req, res) {
+  model.Product.findAll({order: ['"provider"']}).then(products => {
+    res.render('product-public', {products:products, title:'Produk'})
+  })
+})
+
 router.get('/add', function (req, res) {
   res.render('product-add', {title:'Tambah Produk'})
 })

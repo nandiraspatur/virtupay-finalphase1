@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "ameliarahman",
-    "password": "ameliarahman",
+    "username": "postgres",
+    "password": "12345",
     "database": "virtupay",
     "host": "127.0.0.1",
     "dialect": "postgres"

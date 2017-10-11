@@ -3,10 +3,11 @@
 <%include partial/head.ejs%>
 
     <body>
-        <%include partial/navbar.ejs%>
+      <%include partial/navbar.ejs%>
+        <%include partial/dashboard.ejs%>
 
-            <div class="main-table">
-                <table>
+            <div>
+                <table class="main-table">
                     <tr>
                         <th>No</th>
                         <th>ID</th>
@@ -49,10 +50,10 @@
                         <%}})%>
                 </table>
             </div>
-            <a href="/users/add">Add Admin</a>
+            <a href="/users/signup">Add Admin</a>
 
-            <div class="main-table">
-                <table>
+            <div >
+                <table class="main-table">
                     <tr>
                         <th>No</th>
                         <th>ID</th>

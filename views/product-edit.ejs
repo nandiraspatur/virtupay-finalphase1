@@ -3,6 +3,7 @@
   <%include partial/head.ejs%>
   <body>
     <%include partial/navbar.ejs%>
+    <%include partial/dashboard.ejs%>
     <div class="form">
       <form class="login-form" action="/products/edit/<%=product.id%>" method="post">
         <input type="text" name="productName" placeholder="Nama Product" value="<%=product.productName%>">

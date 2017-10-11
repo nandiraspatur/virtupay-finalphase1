@@ -16,6 +16,10 @@ router.get('/', function (req, res) {
     })
 })
 
+router.get('/login', function (req, res) {
+    res.render('login', { title: 'Login' })
+})
+
 router.get('/signup', function (req, res) {
     res.render('user-add', { title: 'Add Data User' })
 })
