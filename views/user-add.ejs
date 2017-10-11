@@ -4,15 +4,34 @@
 
     <body>
         <%include partial/navbar.ejs%>
-            <div class="form">
-                <form class="register-form" action="/users/add" method="POST">
-                    <input type="text" name="name" placeholder="Nama Lengkap" />
-                    <input type="text" name="username" placeholder="Username" />
-                    <input type="password" name="password" placeholder="Password" />
-                    <button>Save</button>
+            <% if(session == 'admin') { %>
+                <div class="form">
+                    <form class="register-form" action="/users/signup" method="POST">
+                        <input type="text" name="name" placeholder="Nama Lengkap" />
+                        <input type="text" name="username" placeholder="Username" />
+                        <input type="password" name="password" placeholder="Password" />
+                        <select name="role">
+                            <option value="admin">Admin</option>
+                            <option value="customer">Customer</option>
+                          </select>
+                        <button>Save</button>
 
-                </form>
-            </div>
+                    </form>
+                </div>
+                <%} else {%>
+                    <div class="form">
+                        <form class="register-form" action="/users/signup" method="POST">
+                            <input type="text" name="name" placeholder="Nama Lengkap" />
+                            <input type="text" name="username" placeholder="Username" />
+                            <input type="password" name="password" placeholder="Password" />
+                            <input type="text" style="display : none" name="role" value="customer" placeholder="Role" />
+                            <button>Save</button>
+
+                        </form>
+                    </div>
+
+                    <%}%>
+
     </body>
 
 </html>

@@ -3,7 +3,12 @@ module.exports = (sequelize, DataTypes) => {
   var UserProduct = sequelize.define('UserProduct', {
     UserId: DataTypes.INTEGER,
     ProductId: DataTypes.INTEGER,
-    TransactionId : DataTypes.INTEGER
+    TransactionId: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
   })
   UserProduct.associate = model => {
     UserProduct.belongsTo(model.Transaction);
