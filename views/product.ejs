@@ -17,7 +17,6 @@
         </tr>
         <%products.forEach(product=>{%>
           <tr>
-<<<<<<< HEAD
             <td><%=product.productName%></td>
             <td><%=product.provider%></td>
             <td><%=product.nominal%></td>
@@ -30,25 +29,6 @@
           <%})%>
         </table>
     </div>
-=======
-            <td>
-              <%=product.productName%>
-            </td>
-            <td>
-              <%=product.provider%>
-            </td>
-            <td>
-              <%=product.nominal%>
-            </td>
-            <td>
-              <%=product.productType%>
-            </td>
-            <th><a href="/products/edit/<%=product.id%>">edit</a></th>
-            <th><a href="/products/delete/<%=product.id%>">delete</a></th>
-          </tr>
-          <%})%>
-      </table>
->>>>>>> origin/login-session
       <a href="/products/add">add product</a>
       <%=userId%>
         <a href="/transactions/<%=userId%>">Transaction</a>

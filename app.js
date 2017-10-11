@@ -18,11 +18,8 @@ app.use(bodyParser.json())
 const index = require('./routes/index');
 const user = require('./routes/user');
 const product = require('./routes/product');
-<<<<<<< HEAD
-=======
-const userproduct = require('./routes/userproduct');
->>>>>>> origin/login-session
 const transaction = require('./routes/transaction');
+const login = require('./routes/login');
 
 function authentication(req, res, next) {
   if (!req.session.login) {
@@ -34,10 +31,8 @@ function authentication(req, res, next) {
 app.use('/', index);
 app.use('/users', user);
 app.use('/products', product);
-<<<<<<< HEAD
-=======
-app.use('/userproducts', userproduct);
->>>>>>> origin/login-session
+app.use('/login', login);
+// app.use('/userproducts', userproduct);
 app.use('/transactions', transaction);
 
 app.listen(process.env.PORT || '3000', () => {
