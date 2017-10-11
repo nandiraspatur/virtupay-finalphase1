@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <%include partial/head.ejs%>
+<%include partial/head.ejs%>
+
   <body>
     <%include partial/navbar.ejs%>
+<<<<<<< HEAD
     <%include partial/dashboard.ejs%>
     <div class="form">
       <form class="login-form" action="/products/add" method="post">
@@ -14,6 +16,19 @@
         <button>Simpan</button>
       </form>
     </div>
+=======
+      <div class="form">
+        <form class="login-form" action="/products/add" method="post">
+          <input type="text" name="productName" placeholder="Nama Product">
+          <input type="text" name="nominal" placeholder="Nominal">
+          <input type="text" name="price" placeholder="Harga">
+          <input type="text" name="provider" placeholder="Provider">
+          <input type="text" name="productType" placeholder="Tipe Produk">
+          <input type="submit" value="Tambah">
+        </form>
+      </div>
+>>>>>>> origin/login-session
 
   </body>
+
 </html>

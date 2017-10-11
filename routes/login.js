@@ -22,6 +22,7 @@ router.post('/', function (req, res) {
         if (result.password == newPassword) {
             req.session.login = true;
             req.session.role = result.role;
+            req.session.userId = result.id;
             res.redirect('/')
         } else {
             res.render('login', { message: 'Username / password is incorrect', title: 'Login' })
