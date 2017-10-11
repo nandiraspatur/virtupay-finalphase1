@@ -3,20 +3,7 @@ const router = express.Router();
 const Model = require('../models')
 const getNota = require('../helper/nota')
 
-router.use(function(req, res, next){
-  if(req.session.login == true){
-    next()
-  }else{
-    res.render('login', { message: 'Silakan Daftar/Login dulu!!', title: 'Login', session:req.session})
-  }
-})
-
 router.get('/', function (req, res) {
-
-  Model.Product.findAll().then(products=>{
-    console.log(products);
-    res.render('order', {products:products, title: 'Order', session:req.session})
-
   Model.Transaction.findAll({
     where: {
       status: 'process'
@@ -30,28 +17,27 @@ router.get('/', function (req, res) {
   }).then(products => {
 
     res.render('order', { products: products, title: 'Order', userId: req.session.userId })
-
   })
 })
 
 router.get('/pulsa', function (req, res) {
   Model.Product.findAll({ where: { productType: 'Pulsa' } }).then(products => {
     console.log(products);
-    res.render('order-pulsa', {products:products, title: 'Order', session:req.session})
+    res.render('order-pulsa', { products: products, title: 'Order', userId: req.session.userId })
   })
 })
 
 router.get('/pln', function (req, res) {
   Model.Product.findAll({ where: { productType: 'PLN Prabayar' } }).then(products => {
     console.log(products);
-    res.render('order-pln', {products:products, title: 'Order', session:req.session})
+    res.render('order-pln', { products: products, title: 'Order', userId: req.session.userId })
   })
 })
 
 router.get('/paketdata', function (req, res) {
   Model.Product.findAll({ where: { productType: 'Paket Data' } }).then(products => {
     console.log(products);
-    res.render('order-paketdata', {products:products, title: 'Order', session:req.session})
+    res.render('order-paketdata', { products: products, title: 'Order', userId: req.session.userId })
   })
 })
 
@@ -95,8 +81,5 @@ router.post('/', function (req, res) {
   })
 })
 
-router.get('/status', function(req, res){
-  res.render('transaction-status', {title: 'Status Transaksi', session:req.session})
-})
 
 module.exports = router
