@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <%include partial/head.ejs%>
+
     <body>
         <%include partial/navbar.ejs%>
-        <a href="/transactions/pulsa">Pulsa</a>
-        <a href="/transactions/pln">PLN</a>
-        <a href="/transactions/paketdata">Paket Data</a>
+            <a href="/transactions/pulsa">Pulsa</a>
+            <a href="/transactions/pln">PLN</a>
+            <a href="/transactions/paketdata">Paket Data</a>
             <div class="form">
-                <form class="register-form" action="/users/signup" method="POST">
-                    <select name="nominal">
-                      <option value="">Pilih Nominal</option>
-                      <%products.forEach(product=>{%>
-                        <option value="<%=product.id%>"><%=product.productName%></option>
-                      <%})%>
-                    </select>
+                <form class="register-form" action="/transactions" method="POST">
+                    <select name="product">
+              <option value="">Pilih Nominal</option>
+              <%products.forEach(product=>{%>
+                <option value="<%=product.id%>"><%=product.productName%></option>
+              <%})%>
+            </select>
                     <input type="text" name="nohp" placeholder="No. Handphone">
                     <button>Pesan</button>
                 </form>

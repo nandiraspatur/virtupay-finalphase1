@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
+    phone: DataTypes.STRING
   })
   UserProduct.associate = model => {
     UserProduct.belongsTo(model.Transaction);
