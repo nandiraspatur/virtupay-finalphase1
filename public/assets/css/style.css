@@ -99,29 +99,30 @@ body {
   text-decoration: none;
 }
 
+.form select {
+  width: 100%;
+  border: 0;
+  height: 50px;
+  padding: 0 10px;
+}
+
+.table h3 {
+  margin: 10px 0 10px 20px;
+}
+
 .main-table {
-  border-radius:3px;
+  width: 100%;
   border-collapse: collapse;
-  margin: 50px auto;
 }
 
 th {
   color:#eff1fe;
   background:#181935;
   border-bottom:4px solid #9ea7af;
-  font-size:15px;
+  font-size:18px;
   font-weight: 400;
   padding:10px 24px;
   text-align:left;
-}
-
-th:first-child {
-  border-top-left-radius:3px;
-}
-
-th:last-child {
-  border-top-right-radius:3px;
-  border-right:none;
 }
 
 tr {
@@ -161,7 +162,7 @@ td {
   background:#FFFFFF;
   padding:15px 20px;
   text-align:left;
-  font-size:12px;
+  font-size:15px;
   border-right: 1px solid #C1C3D1;
 }
 
