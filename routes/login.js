@@ -7,7 +7,7 @@ const getSecret = require('../helper/secret')
 const getEncrypt = require('../helper/encrypt')
 
 router.get('/', function (req, res) {
-    res.render('login', { title: 'Login', message: '' })
+    res.render('login', { title: 'Login', message: '', session:req.session})
 })
 
 router.post('/', function (req, res) {
@@ -23,18 +23,15 @@ router.post('/', function (req, res) {
             req.session.login = true;
             req.session.role = result.role;
             req.session.userId = result.id;
-            res.redirect('/')
+            req.session.name = result.name;
+            console.log(req.session);
+            res.redirect('/profile')
         } else {
-            res.render('login', { message: 'Username / password is incorrect', title: 'Login' })
+            res.render('login', { message: 'Username / password is incorrect', title: 'Login', session:req.session})
         }
     }).catch((reason) => {
-        res.render('login', { message: 'Username / password is incorrect', title: 'Login' })
+        res.render('login', { message: 'Username / password is incorrect', title: 'Login', session:req.session})
     })
-})
-
-router.get('/logout', function (req, res) {
-    req.session.destroy()
-    res.redirect('../login');
 })
 
 module.exports = router;

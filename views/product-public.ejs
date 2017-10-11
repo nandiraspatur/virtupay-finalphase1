@@ -8,17 +8,16 @@
           <th>Nama Product</th>
           <th>Provider</th>
           <th>Nominal</th>
-          <th>Tipe Produk</th>
+          <th>Price</th>
         </tr>
         <%products.forEach(product=>{%>
           <tr>
             <td><%=product.productName%></td>
             <td><%=product.provider%></td>
             <td><%=product.nominal%></td>
-            <td><%=product.productType%></td>
+            <td><%=product.price%></td>
           </tr>
         <%})%>
       </table>
-      <a href="/products/add">add product</a>
   </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%include partial/head.ejs%>
+  <body>
+    <%include partial/navbar.ejs%>
+    <%include partial/dashboard.ejs%>
+    <div class="table">
+      <h3>Profil Anda</h3>
+        <table>
+            <tr>
+              <td>Name</td>
+              <td>:</td>
+              <td><%=session.name%></td>
+              <td><a href="users/edit/<%=session.userId%>">edit</a></td>
+            </tr>
+        </table>
+      </div>
+  </body>
+</html>
