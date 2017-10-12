@@ -21,7 +21,8 @@
                             <th>Status</th>
 
                         </tr>
-                        <% products.forEach(function(product, index) {%>
+                        <% products.forEach(function(product, index) {
+                            if(product.status == 'process') {%>
                             <tr>
                                 <td>
                                     <%= index+1%>
@@ -32,7 +33,6 @@
                                 <td>
                                     <%=product.createdAt%>
                                 </td>
-
                                 <% if(product.UserProducts) { %>
                                     <% product.UserProducts.forEach(function(userproduct){ %>
                                         <td>
@@ -51,7 +51,8 @@
                                                     <%=product.status%>
                                                 </td>
                             </tr>
-                            <%})%>
+
+                            <%}})%>
                     </table>
 
                     <%} else if(session.role == 'admin') { %>
@@ -66,8 +67,8 @@
                                 <th>Action</th>
 
                             </tr>
-                            <%
-                                          products.forEach(function(product, index) {%>
+                            <% products.forEach(function(product, index) {
+                                if(product.status == 'process') {%>
                                 <tr>
                                     <td>
                                         <%= index+1%>
@@ -99,7 +100,8 @@
                                                         <a href="order/confirm/<%=product.id%>"> Confirm</a>
                                                     </td>
                                 </tr>
-                                <%})%>
+                                <% }%>
+                                    <%})%>
                         </table>
                         <%}%>
 

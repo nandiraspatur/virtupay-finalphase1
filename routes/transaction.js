@@ -25,16 +25,13 @@ router.get('/status', function (req, res) {
     })
   } else if (req.session.role == 'admin') {
     Model.Transaction.findAll({
-      where: {
-        status: 'process'
-      }
-    }, {
-        include: [{
-          model: Model.UserProduct
-        }]
-      }).then(products => {
-        res.render('order', { products: products, title: 'Order', session: req.session })
-      })
+      include: [{
+        model: Model.UserProduct,
+      }]
+    }).then(products => {
+      //res.send(JSON.stringify(products))
+      res.render('order', { products: products, title: 'Order', session: req.session })
+    })
   }
 
 })

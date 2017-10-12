@@ -39,5 +39,19 @@ router.get('/product', function (req, res) {
     })
 })
 
+router.get('/history', function (req, res) {
+
+    Model.Transaction.findAll({
+        include: [{
+            model: Model.UserProduct,
+            where: {
+                UserId: req.session.userId
+            }
+        }]
+    }).then(products => {
+        // res.send(JSON.stringify(products))
+        res.render('history', { products: products, title: 'Order', session: req.session })
+    })
+})
 
 module.exports = router
