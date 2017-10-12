@@ -88,4 +88,8 @@ router.get('/status', function(req, res){
   res.render('transaction-status', {title: 'Status Transaksi', session:req.session})
 })
 
+router.get('/sales', function(req, res){
+  res.render('sales', {title: 'Status Transaksi', session:req.session})
+})
+
 module.exports = router

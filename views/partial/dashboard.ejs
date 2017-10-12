@@ -27,16 +27,18 @@
       </div>
       <%if (session.role == 'admin'){%>
       <div class="menu-dashboard">
-        <a href="/sales">
+        <a href="/transactions/sales">
           <i class="material-icons">done_all</i><br>
           Penjualan
         </a>
       </div>
       <%}%>
+      <%if (session.role == 'customer'){%>
       <div class="menu-dashboard">
         <a href="/buy">
           <i class="material-icons">shopping_cart</i><br>
           Pembelian
         </a>
       </div>
+      <%}%>
     </div>
