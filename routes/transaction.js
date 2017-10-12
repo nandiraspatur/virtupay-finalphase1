@@ -11,7 +11,7 @@ router.use(function(req, res, next){
   }
 })
 
-router.get('/', function (req, res) {
+router.get('/status', function (req, res) {
   Model.Transaction.findAll({
     include: [{
       model: Model.UserProduct,
@@ -45,7 +45,7 @@ router.get('/paketdata', function (req, res) {
   })
 })
 
-router.post('/', function (req, res) {
+router.post('/status', function (req, res) {
   let nota;
   let newId;
   Model.Transaction.findOne({
@@ -84,7 +84,7 @@ router.post('/', function (req, res) {
   })
 })
 
-router.get('/status', function(req, res){
+router.get('/', function(req, res){
   res.render('transaction-status', {title: 'Status Transaksi', session:req.session})
 })
 
