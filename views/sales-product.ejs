@@ -18,6 +18,7 @@
                             <th>Total</th>
                         </tr>
                         <%sales.forEach(data=>{%>
+                          <%if(data.UserProducts.length != 0){%>
                             <tr>
                                 <td>
                                     <%=data.provider%>
@@ -39,7 +40,7 @@
 
                                     </ol>
                                 </td>
-                                <% let jumlah = 0; 
+                                <% let jumlah = 0;
                                 data.UserProducts.forEach((hasil)=> {
                                     jumlah +=Number(hasil.Transaction.total)
                                     }) %>
@@ -49,7 +50,8 @@
 
 
                             </tr>
-                            <%})%>
+                            <%}%>
+                          <%})%>
                     </table>
                 </div>
     </body>

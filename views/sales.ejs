@@ -1,28 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-  <%include partial/head.ejs%>
-  <body>
-    <%include partial/navbar.ejs%>
-    <%include partial/dashboard.ejs%>
-    <div class="table">
-      <h3>Penjualan</h3>
-        <table class="main-table">
-            <tr>
-              <th>No</th>
-              <th>Tanggal</th>
-              <th>No Pesanan</th>
-              <th>Nama Barang</th>
-              <th>Total Harga</th>
-            </tr>
-            <tr>
-              
-            </tr>
-        </table>
-      </div>
-  </body>
-</html>
-=======
 <%include partial/head.ejs%>
 
     <body>
@@ -39,6 +16,7 @@
 
                         </tr>
                         <%sales.forEach(data=>{%>
+                          <%if(data.UserProducts.length != 0){%>
                             <tr>
                                 <td>
                                     <%=data.name%>
@@ -54,7 +32,7 @@
 
                                     </ol>
                                 </td>
-                                <% let jumlah = 0; 
+                                <% let jumlah = 0;
                                 data.UserProducts.forEach((hasil)=> {
                                     jumlah +=Number(hasil.Transaction.total)
                                     }) %>
@@ -64,11 +42,11 @@
 
 
                             </tr>
+                            <%}%>
                             <%})%>
                     </table>
-                   
+
                 </div>
     </body>
 
 </html>
->>>>>>> origin/sales

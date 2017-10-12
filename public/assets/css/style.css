@@ -248,7 +248,7 @@ td a:hover {
 .form-order .corder1{
   position: relative;
   z-index: 1;
-  background: #00ccbe;
+  background: #0079b2;
   max-width: 360px;
   margin: 75px auto;
   padding: 45px;
@@ -298,7 +298,7 @@ td a:hover {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #34495e;
+  background: #072157;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -329,13 +329,13 @@ td a:hover {
 }
 
 .order .corder1 {
-  background: #00ccbe;
+  background: #0079b2;
 }
 
 .order .corder2 {
-  background: #0050be;
+  background: #0cacde;
 }
 
 .order .corder3 {
-  background: #a35ece;
+  background: #40c8f3;
 }

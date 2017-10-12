@@ -12,29 +12,29 @@ router.use(function (req, res, next) {
 })
 
 router.get('/status', function (req, res) {
-<<<<<<< HEAD
+// <<<<<<< HEAD
   // Promise.all([
-=======
+// =======
   if (req.session.role == 'customer') {
->>>>>>> origin/sales
+// >>>>>>> origin/sales
     Model.Transaction.findAll({
       include: [{
         model: Model.UserProduct,
         where: {
           UserId: req.session.userId
-<<<<<<< HEAD
-        },
-        include: [{
-          model: Model.Product
-        }]
-      }]
-    }).then(products => {
-      // res.send(products);
-      // console.log(product);
-      res.render('order-status', { products: products, title: 'Order', session: req.session})
-    })
-  // ])
-=======
+// <<<<<<< HEAD
+//         },
+//         include: [{
+//           model: Model.Product
+//         }]
+//       }]
+//     }).then(products => {
+//       // res.send(products);
+//       // console.log(product);
+//       res.render('order-status', { products: products, title: 'Order', session: req.session})
+//     })
+//   // ])
+// =======
         }
       }]
     }).then(products => {
@@ -54,7 +54,7 @@ router.get('/status', function (req, res) {
       })
   }
 
->>>>>>> origin/sales
+// >>>>>>> origin/sales
 })
 
 router.get('/pulsa', function (req, res) {
@@ -117,15 +117,17 @@ router.post('/status', function (req, res) {
   })
 })
 
+// <<<<<<< HEAD
 router.get('/', function(req, res){
   res.redirect('/transactions/pulsa')
 })
 
-router.get('/sales', function(req, res){
-  res.render('sales', {title: 'Status Transaksi', session:req.session})
-router.get('/', function (req, res) {
-  res.render('order-status', { title: 'Status Transaksi', session: req.session })
-})
+// router.get('/sales', function(req, res){
+//   res.render('sales', {title: 'Status Transaksi', session:req.session})
+// =======
+// router.get('/', function (req, res) {
+//   res.render('transaction-status', { title: 'Status Transaksi', session: req.session })
+// })
 
 router.get('/order/confirm/:id', function (req, res) {
   Model.Transaction.update({
@@ -137,6 +139,7 @@ router.get('/order/confirm/:id', function (req, res) {
     }).then(result => {
       res.redirect('../../../transactions/status')
     })
+// >>>>>>> origin/sales
 })
 
 module.exports = router

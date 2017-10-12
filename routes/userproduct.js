@@ -18,6 +18,7 @@ router.get('/', function (req, res) {
                 role: 'customer'
             }
         }).then(result => {
+          // res.send(result);
             res.render('sales', { sales: result, title: 'Penjualan', session: req.session })
         })
 })
