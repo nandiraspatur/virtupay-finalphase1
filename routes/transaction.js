@@ -20,12 +20,7 @@ router.get('/', function (req, res) {
       }
     }]
   }).then(products => {
-
-<<<<<<< HEAD
-    res.render('order', { products: products, title: 'Order', session:req.session })
-=======
-    res.render('order', { products: products, title: 'Order', userId: req.session.userId })
->>>>>>> origin/transaction
+    res.render('order', { products: products, title: 'Order', session: req.session})
   })
 })
 
