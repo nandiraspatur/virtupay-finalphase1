@@ -19,6 +19,7 @@ const user = require('./routes/user');
 const product = require('./routes/product');
 const transaction = require('./routes/transaction');
 const login = require('./routes/login');
+const userproduct = require('./routes/userproduct');
 
 function authentication(req, res, next) {
   if (!req.session.login) {
@@ -31,7 +32,7 @@ app.use('/', index);
 app.use('/users', user);
 app.use('/products', product);
 app.use('/login', login);
-// app.use('/userproducts', userproduct);
+app.use('/sales', userproduct);
 app.use('/transactions', transaction);
 
 app.listen(process.env.PORT || '3000', () => {

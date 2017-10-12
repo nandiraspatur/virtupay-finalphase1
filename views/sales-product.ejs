@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-  <%include partial/head.ejs%>
-  <body>
-    <%include partial/navbar.ejs%>
-    <%include partial/dashboard.ejs%>
-    <div class="table">
-      <h3>Penjualan</h3>
-        <table class="main-table">
-            <tr>
-              <th>No</th>
-              <th>Tanggal</th>
-              <th>No Pesanan</th>
-              <th>Nama Barang</th>
-              <th>Total Harga</th>
-            </tr>
-            <tr>
-              
-            </tr>
-        </table>
-      </div>
-  </body>
-</html>
-=======
 <%include partial/head.ejs%>
 
     <body>
         <%include partial/navbar.ejs%>
             <%include partial/dashboard.ejs%>
-            <a href="/sales/product">Penjualan Product</a>
+            <a href="/sales">History Penjualan</a>
                 <div class="table">
+
                     <table class="main-table">
                         <h3>Penjualan</h3>
                         <tr>
-                            <th>Nama</th>
-                            <th>Nomor Transaksi</th>
+                            <th>Nama Brand</th>
+                            <th>Jenis Product</th>
+                            <th>Tipe Product</th>
+                            <th>Transaksi</th>
                             <th>Total</th>
-
                         </tr>
                         <%sales.forEach(data=>{%>
                             <tr>
                                 <td>
-                                    <%=data.name%>
+                                    <%=data.provider%>
+                                </td>
+                                <td>
+                                    <%=data.productName%>
+                                </td>
+                                <td>
+                                    <%=data.productType%>
                                 </td>
                                 <td>
                                     <ol>
@@ -66,9 +51,7 @@
                             </tr>
                             <%})%>
                     </table>
-                   
                 </div>
     </body>
 
 </html>
->>>>>>> origin/sales
