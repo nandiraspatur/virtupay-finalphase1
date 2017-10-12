@@ -8,30 +8,30 @@
     <div class="table">
       <table class="main-table">
         <h3>Daftar Produk</h3>
+        <p><a href="/products/add">Tambah Produk</a></p>
         <tr>
+          <th>No</th>
           <th>Nama</th>
           <th>Provider</th>
           <th>Nominal</th>
           <th>Tipe Produk</th>
           <th>Opsi</th>
         </tr>
-        <%products.forEach(product=>{%>
+        <%products.forEach((product,i)=>{%>
           <tr>
+            <td><%=i+1%></td>
             <td><%=product.productName%></td>
             <td><%=product.provider%></td>
             <td><%=product.nominal%></td>
             <td><%=product.productType%></td>
             <td>
-              <a href="/products/edit/product.id">edit</a>
-              <a href="/products/delete/product.id">delete</a>
+              <a href="/products/edit/<%=product.id%>"><i class="material-icons">mode_edit</i></a>
+              <a href="/products/delete/<%=product.id%>"><i class="material-icons">delete_forever</i></a>
             </td>
           </tr>
           <%})%>
         </table>
     </div>
-      <a href="/products/add">add product</a>
-      <%=session.userId%>
-        <a href="/transactions/<%=session.userId%>">Transaction</a>
   </body>
 
 </html>

@@ -6,8 +6,10 @@
     <%include partial/dashboard.ejs%>
     <div class="profile">
       <h3>Profil Anda</h3>
-        <h4>Selamat Datang, <%=user.name%></h4>
-        <a href="/users/edit/<%=user.id%>">Edit Profile</a>
-      </div>
+      <img src="/img/user.png" alt="">
+      <h4>Selamat Datang, <%=user.name%></h4>
+      <h4><%=user.role%></h4>
+      <a href="/users/edit/<%=user.id%>">Edit Profile</a>
+    </div>
   </body>
 </html>

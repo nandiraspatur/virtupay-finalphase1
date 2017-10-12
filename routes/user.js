@@ -6,11 +6,19 @@ const getSecret = require('../helper/secret')
 const getEncrypt = require('../helper/encrypt')
 const getDecrypt = require('../helper/decrypt')
 
-router.get('/signup', function (req, res) {
+function allowSignUp(req, res, next){
+  if(!req.session.login || req.session.role == 'admin'){
+    next()
+  }else{
+    res.redirect('/dashboard')
+  }
+}
+
+router.get('/signup', allowSignUp, function (req, res) {
   res.render('user-add', { title: 'Add Data User', session: req.session})
 })
 
-router.post('/signup', function (req, res) {
+router.post('/signup', allowSignUp, function (req, res) {
   let password = req.body.password
   let secret = getSecret(20);
   let newPassword = getEncrypt(password, secret);
@@ -22,7 +30,11 @@ router.post('/signup', function (req, res) {
     salt: secret,
     role: req.body.role
   }).then(result => {
-    res.render('login', { message: 'Anda telah terdaftar, silahkan login menggunakan password dan username Anda!', title: 'Welcome', session:req.session})
+    if(req.session.role == 'admin'){
+      res.redirect('/users')
+    }else{
+      res.render('login', { message: 'Anda telah terdaftar, silahkan login menggunakan password dan username Anda!', title: 'Welcome', session:req.session})
+    }
   })
 
 })

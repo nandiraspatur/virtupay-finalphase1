@@ -3,7 +3,10 @@
 <%include partial/head.ejs%>
 
     <body>
-        <%include partial/navbar.ejs%>
+      <%include partial/navbar.ejs%>
+      <%if(session.login){%>
+        <%include partial/dashboard.ejs%>
+      <%}%>
             <div class="form">
                 <form class="register-form" action="/users/edit/<%=dataUser.id%>" method="POST">
                     <input type="text" name="name" value="<%=dataUser.name%>" placeholder="Nama Lengkap" />

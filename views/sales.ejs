@@ -2,51 +2,61 @@
 <html>
 <%include partial/head.ejs%>
 
-    <body>
-        <%include partial/navbar.ejs%>
-            <%include partial/dashboard.ejs%>
-            <a href="/sales/product">Penjualan Product</a>
-                <div class="table">
-                    <table class="main-table">
-                        <h3>Penjualan</h3>
-                        <tr>
-                            <th>Nama</th>
-                            <th>Nomor Transaksi</th>
-                            <th>Total</th>
+  <body>
+    <%include partial/navbar.ejs%>
+      <%include partial/dashboard.ejs%>
 
-                        </tr>
-                        <%sales.forEach(data=>{%>
-                          <%if(data.UserProducts.length != 0){%>
-                            <tr>
-                                <td>
-                                    <%=data.name%>
-                                </td>
-                                <td>
-                                    <ol>
-                                        <% data.UserProducts.forEach((hasil)=> { %>
-                                            <li>
-                                                <%= hasil.Transaction.nota%>
+        <div class="table">
+          <table class="main-table">
+            <h3>Penjualan</h3>
+            <p><a href="/sales/product">Produk</a></p>
+            <p><a href="/sales">Pelanggan</a></p>
+            <tr>
+              <th>No</th>
+              <th>Nama Pelanggan</th>
+              <th>Nomor Transaksi</th>
+              <th>Tanggal Transaksi</th>
+              <th>Nominal Transaksi</th>
+              <th>Total</th>
 
-                                            </li>
-                                            <%}) %>
-
-                                    </ol>
-                                </td>
-                                <% let jumlah = 0;
+            </tr>
+            <%sales.forEach((data, i)=>{%>
+              <%if(data.UserProducts.length != 0){%>
+                <tr>
+                  <td><%=i+1%></td>
+                  <td>
+                    <%=data.name%>
+                  </td>
+                  <td>
+                    <% data.UserProducts.forEach((hasil, i)=> { %>
+                        <%=i+1%>. <%= hasil.Transaction.nota%><br>
+                    <%}) %>
+                  </td>
+                  <td>
+                      <% data.UserProducts.forEach((hasil, i)=> { %>
+                          <%=i+1%>. <%= hasil.Transaction.createdAt%><br>
+                        <%}) %>
+                  </td>
+                  <td>
+                      <% data.UserProducts.forEach((hasil,i)=> { %>
+                          <%=i+1%>. <%= hasil.Transaction.total%><br>
+                        <%}) %>
+                  </td>
+                  <% let jumlah = 0;
                                 data.UserProducts.forEach((hasil)=> {
                                     jumlah +=Number(hasil.Transaction.total)
                                     }) %>
-                                    <td>
-                                        <%= jumlah%>
-                                    </td>
+                    <td>
+                      <%= jumlah%>
+                    </td>
 
 
-                            </tr>
-                            <%}%>
-                            <%})%>
-                    </table>
+                </tr>
+                <%}%>
+                  <%})%>
+          </table>
 
-                </div>
-    </body>
+        </div>
+  </body>
 
 </html>

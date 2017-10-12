@@ -2,111 +2,108 @@
 <html>
 <%include partial/head.ejs%>
 
-    <body>
-        <%include partial/navbar.ejs%>
-            <a href="/transactions/pulsa">Pulsa</a>
-            <a href="/transactions/pln">PLN</a>
-            <a href="/transactions/paketdata">Paket Data</a>
+  <body>
+    <%include partial/navbar.ejs%>
+      <%include partial/dashboard.ejs%>
 
-            <div class="table">
-                <h3>Transactions</h3>
-                <% if(session.role == 'customer') {%>
-                    <table class="main-table">
-                        <tr>
-                            <th>No</th>
-                            <th>ID Transaksi</th>
-                            <th>Tanggal</th>
-                            <th>Phone</th>
-                            <th>Total</th>
-                            <th>Status</th>
+        <div class="table">
+          <h3>Daftar Transaksi</h3>
+          <% if(session.role == 'customer') {%>
+            <table class="main-table">
+              <tr>
+                <th>No</th>
+                <th>ID Transaksi</th>
+                <th>Tanggal</th>
+                <th>Phone</th>
+                <th>Total</th>
+                <th>Status</th>
 
-                        </tr>
-                        <% products.forEach(function(product, index) {
+              </tr>
+              <% products.forEach(function(product, index) {
                             if(product.status == 'process') {%>
-                            <tr>
-                                <td>
-                                    <%= index+1%>
-                                </td>
-                                <td>
-                                    <%=product.nota%>
-                                </td>
-                                <td>
-                                    <%=product.createdAt%>
-                                </td>
-                                <% if(product.UserProducts) { %>
-                                    <% product.UserProducts.forEach(function(userproduct){ %>
-                                        <td>
-                                            <%=userproduct.phone%>
-                                        </td>
-                                        <%})} else {%>
-                                            <td>
+                <tr>
+                  <td>
+                    <%= index+1%>
+                  </td>
+                  <td>
+                    <%=product.nota%>
+                  </td>
+                  <td>
+                    <%=product.createdAt%>
+                  </td>
+                  <% if(product.UserProducts) { %>
+                    <% product.UserProducts.forEach(function(userproduct){ %>
+                      <td>
+                        <%=userproduct.phone%>
+                      </td>
+                      <%})} else {%>
+                        <td>
 
-                                            </td>
-                                            <%}%>
-
-                                                <td>
-                                                    <%=product.total%>
-                                                </td>
-                                                <td>
-                                                    <%=product.status%>
-                                                </td>
-                            </tr>
-
-                            <%}})%>
-                    </table>
-
-                    <%} else if(session.role == 'admin') { %>
-                        <table class="main-table">
-                            <tr>
-                                <th>No</th>
-                                <th>ID Transaksi</th>
-                                <th>Tanggal</th>
-                                <th>Phone</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                                <th>Action</th>
-
-                            </tr>
-                            <% products.forEach(function(product, index) {
-                                if(product.status == 'process') {%>
-                                <tr>
-                                    <td>
-                                        <%= index+1%>
-                                    </td>
-                                    <td>
-                                        <%=product.nota%>
-                                    </td>
-                                    <td>
-                                        <%=product.createdAt%>
-                                    </td>
-                                    <% if(product.UserProducts) { %>
-                                        <% product.UserProducts.forEach(function(userproduct){ %>
-                                            <td>
-                                                <%=userproduct.phone%>
-                                            </td>
-                                            <%})} else {%>
-                                                <td>
-
-                                                </td>
-                                                <%}%>
-
-                                                    <td>
-                                                        <%=product.total%>
-                                                    </td>
-                                                    <td>
-                                                        <%=product.status%>
-                                                    </td>
-                                                    <td>
-                                                        <a href="order/confirm/<%=product.id%>"> Confirm</a>
-                                                    </td>
-                                </tr>
-                                <% }%>
-                                    <%})%>
-                        </table>
+                        </td>
                         <%}%>
 
+                          <td>
+                            <%=product.total%>
+                          </td>
+                          <td>
+                            <%=product.status%>
+                          </td>
+                </tr>
+
+                <%}})%>
+            </table>
+
+            <%} else if(session.role == 'admin') { %>
+              <table class="main-table">
+                <tr>
+                  <th>No</th>
+                  <th>ID Transaksi</th>
+                  <th>Tanggal</th>
+                  <th>Phone</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Action</th>
+
+                </tr>
+                <% products.forEach(function(product, index) {
+                                if(product.status == 'process') {%>
+                  <tr>
+                    <td>
+                      <%= index+1%>
+                    </td>
+                    <td>
+                      <%=product.nota%>
+                    </td>
+                    <td>
+                      <%=product.createdAt%>
+                    </td>
+                    <% if(product.UserProducts) { %>
+                      <% product.UserProducts.forEach(function(userproduct){ %>
+                        <td>
+                          <%=userproduct.phone%>
+                        </td>
+                        <%})} else {%>
+                          <td>
+
+                          </td>
+                          <%}%>
+
+                            <td>
+                              <%=product.total%>
+                            </td>
+                            <td>
+                              <%=product.status%>
+                            </td>
+                            <td>
+                              <a class="confirm" href="order/confirm/<%=product.id%>">Confirm</a>
+                            </td>
+                  </tr>
+                  <% }%>
+                    <%})%>
+              </table>
+              <%}%>
 
 
-    </body>
+  </body>
 
 </html>

@@ -24,7 +24,7 @@ function checkAccess(req, res, next){
 }
 
 router.get('/dashboard', checkAccess, function (req, res) {
-  res.render('index-dashboard', { title: 'Dashboard', session: req.session})
+  res.redirect('/profile')
 })
 
 router.get('/profile', checkAccess, function (req, res) {

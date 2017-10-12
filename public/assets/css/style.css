@@ -114,24 +114,62 @@ body {
   padding: 0 10px;
 }
 
+.table h2 {
+  font-size: 30px;
+  margin: 40px 0 20px 40px;
+  text-align: center;
+}
+
 .table h3 {
-  margin: 10px 0 10px 20px;
+  font-size: 30px;
+  margin: 40px 0 20px 40px;
+  float: left;
+}
+
+.table p a{
+  display: block;
+  float: left;
+  margin: 40px 0 20px 10px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  background: #00c0fc;
+  border-radius: 3px;
+}
+
+.table p a:hover {
+  background: #0079b2;
+  transition: 0.5s ease-in-out;
+}
+
+.table i{
+  font-size: 30px;
+  color: #ce1b1b;
+  text-decoration: none;
 }
 
 .main-table {
-  margin: auto;
+  margin: 0 auto 40px auto;
   width: 95%;
   border-collapse: collapse;
 }
 
 th {
   color:#eff1fe;
-  background:#181935;
+  background:#0079b2;
   border-bottom:4px solid #9ea7af;
   font-size:18px;
   font-weight: 400;
   padding:10px 24px;
-  text-align:left;
+  text-align:center;
+}
+
+th:first-child{
+  border-top-left-radius: 5px;
+}
+
+th:last-child{
+  border-top-right-radius: 5px;
 }
 
 tr {
@@ -175,6 +213,10 @@ td {
   border-right: 1px solid #C1C3D1;
 }
 
+td:first-child {
+  text-align: center;
+}
+
 td:last-child {
   text-align: center;
   border-right: 0px;
@@ -193,7 +235,8 @@ td a:hover {
 .dashboard {
   height: 90px;
   width: 100%;
-  background: #005f69;
+  background: #0079b2;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 2px 1px 0 rgba(0, 0, 0, 0.24);
 }
 
 .menu-dashboard {
@@ -338,4 +381,159 @@ td a:hover {
 
 .order .corder3 {
   background: #40c8f3;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile img {
+  width: 200px;
+}
+
+.profile h3 {
+  font-size: 30px;
+  margin: 40px 0 20px 0;
+}
+
+.profile h4 {
+  margin: 20px 0 0 0;
+}
+
+.profile a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  width: 100px;
+  margin: 20px auto 50px auto;
+  background: #00c0fc;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.profile a:hover {
+  background: #0079b2;
+  transition: all 0.3 ease;
+}
+
+footer {
+  margin-top: 50px;
+  width: 100%;
+  position: absolute;
+}
+
+footer .social {
+  padding: 20px 0;
+  text-align: center;
+  display: block;
+  width: 100%;
+  background: #0079b2;
+  color: #fff;
+}
+
+footer .foot-wrap {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background: #063850;
+  color: #fff;
+}
+
+.confirm  {
+  display: block;
+  padding: 8px 3px;
+  background: #00c0fc;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.confirm:hover {
+  background: #0079b2;
+  transition: all 0.3 ease;
+  color: #fff;
+}
+
+.contact .message {
+  height: 300px;
+  float: left;
+  background: #0079b2;
+  padding: 0 50px;
+}
+
+.contact .message h3{
+  margin: 40px 0 10px 10px;
+  font-size: 23px;
+  color: #fff;
+}
+
+.contact .message form input{
+  width: 250px;
+  height: 30px;
+  padding-left: 15px;
+}
+
+.contact .message textarea {
+  width: 250px;
+  height: 80px;
+  padding: 10px 5px 0 20px;
+}
+
+.contact .message button {
+  width: 80px;
+}
+
+.contact .contact-detail {
+  height: 300px;
+  float: left;
+  background: #00c0fc;
+  padding: 0 50px;
+}
+
+.contact .contact-detail h3 {
+  margin: 75px 0 10px 10px;
+  font-size: 23px;
+  color: #fff;
+}
+
+.contact .contact-detail p {
+  color: #fff;
+}
+
+.contact {
+  width: 770px;
+  margin: 70px auto;
+}
+
+.home .left-home {
+  float: left;
+  height: 600px;
+  text-align: right;
+  width: 55%;
+}
+
+.home {
+  width: 1100px;
+  margin:  50px auto 0 auto;
+
+}
+
+.home .left-home img{
+  width: 500px;
+  margin-right: 20px;
+}
+
+.home .right-home {
+  float: left;
+  height: 600px;
+  width: 45%;
+}
+
+.home .right-home h2 {
+  font-size: 50px;
+  margin: 200px 0 0 20px;
+}
+
+.home .right-home h4 {
+  margin: 0 0 0 20px;
 }
