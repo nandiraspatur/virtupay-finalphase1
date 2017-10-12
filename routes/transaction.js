@@ -13,9 +13,6 @@ router.use(function(req, res, next){
 
 router.get('/', function (req, res) {
   Model.Transaction.findAll({
-    where: {
-      status: 'process'
-    },
     include: [{
       model: Model.UserProduct,
       where: {
@@ -24,7 +21,11 @@ router.get('/', function (req, res) {
     }]
   }).then(products => {
 
+<<<<<<< HEAD
     res.render('order', { products: products, title: 'Order', session:req.session })
+=======
+    res.render('order', { products: products, title: 'Order', userId: req.session.userId })
+>>>>>>> origin/transaction
   })
 })
 
@@ -61,28 +62,27 @@ router.post('/', function (req, res) {
       nota: newNota,
       status: "process"
     }).then(resultInsert => {
-      Model.UserProduct.create({
-        TransactionId: newId,
-        UserId: req.session.userId,
-        ProductId: req.body.product,
-        phone: req.body.nohp
-      }).then(resultUserProduct => {
-        Model.Product.findOne({
-          where: {
-            id: req.body.product
-          }
-        }).then(getTotal => {
-          console.log(getTotal.price)
-          Model.Transaction.update({
-            total: getTotal.price
-          }, {
-              where: {
-                id: newId
-              }
-            })
-        }).then(finalResul => {
-          res.redirect('../../transactions')
+      Model.Product.findOne({
+        where: {
+          id: req.body.product
+        }
+      }).then(getTotal => {
+        Model.Transaction.update({
+          total: getTotal.price
+        }, {
+            where: {
+              id: newId
+            }
+          })
+      }).then(updatePrice => {
+        Model.UserProduct.create({
+          TransactionId: newId,
+          UserId: req.session.userId,
+          ProductId: req.body.product,
+          phone: req.body.nohp
         })
+      }).then(finalResul => {
+        res.redirect('../../transactions')
       })
     })
 
