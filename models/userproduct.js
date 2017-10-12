@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     UserProduct.belongsTo(model.Transaction);
     UserProduct.belongsTo(model.User);
     UserProduct.belongsTo(model.Product);
-
   }
   return UserProduct;
 };

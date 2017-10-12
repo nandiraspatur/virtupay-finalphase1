@@ -28,7 +28,10 @@ router.get('/dashboard', checkAccess, function (req, res) {
 })
 
 router.get('/profile', checkAccess, function (req, res) {
-    res.render('profile', { title: 'Profil', session: req.session})
+    Model.User.findOne({where:{id:req.session.userId}}).then(user=>{
+      console.log(user);
+      res.render('profile', {user: user, title: 'Profil', session: req.session})
+    })
 })
 
 

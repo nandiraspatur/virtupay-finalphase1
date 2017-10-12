@@ -4,16 +4,10 @@
   <body>
     <%include partial/navbar.ejs%>
     <%include partial/dashboard.ejs%>
-    <div class="table">
+    <div class="profile">
       <h3>Profil Anda</h3>
-        <table>
-            <tr>
-              <td>Name</td>
-              <td>:</td>
-              <td><%=session.name%></td>
-              <td><a href="users/edit/<%=session.userId%>">edit</a></td>
-            </tr>
-        </table>
+        <h4>Selamat Datang, <%=user.name%></h4>
+        <a href="/users/edit/<%=user.id%>">Edit Profile</a>
       </div>
   </body>
 </html>

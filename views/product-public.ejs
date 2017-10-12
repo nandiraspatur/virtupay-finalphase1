@@ -3,21 +3,22 @@
   <%include partial/head.ejs%>
   <body>
     <%include partial/navbar.ejs%>
+    <div class="product">
+      <h3>Daftar Produk Dijual</h3>
       <table class="main-table">
         <tr>
           <th>Nama Product</th>
           <th>Provider</th>
-          <th>Nominal</th>
-          <th>Price</th>
+          <th>Harga</th>
         </tr>
         <%products.forEach(product=>{%>
           <tr>
             <td><%=product.productName%></td>
             <td><%=product.provider%></td>
-            <td><%=product.nominal%></td>
             <td><%=product.price%></td>
           </tr>
-        <%})%>
-      </table>
+          <%})%>
+        </table>
+    </div>
   </body>
 </html>

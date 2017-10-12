@@ -12,16 +12,23 @@ router.use(function(req, res, next){
 })
 
 router.get('/status', function (req, res) {
-  Model.Transaction.findAll({
-    include: [{
-      model: Model.UserProduct,
-      where: {
-        UserId: req.session.userId
-      }
-    }]
-  }).then(products => {
-    res.render('order', { products: products, title: 'Order', session: req.session})
-  })
+  // Promise.all([
+    Model.Transaction.findAll({
+      include: [{
+        model: Model.UserProduct,
+        where: {
+          UserId: req.session.userId
+        },
+        include: [{
+          model: Model.Product
+        }]
+      }]
+    }).then(products => {
+      // res.send(products);
+      // console.log(product);
+      res.render('order-status', { products: products, title: 'Order', session: req.session})
+    })
+  // ])
 })
 
 router.get('/pulsa', function (req, res) {
@@ -77,7 +84,7 @@ router.post('/status', function (req, res) {
           phone: req.body.nohp
         })
       }).then(finalResul => {
-        res.redirect('../../transactions')
+        res.render('order-confirm', {title:'Konfirmasi Pesanan', session:req.session})
       })
     })
 
@@ -85,7 +92,7 @@ router.post('/status', function (req, res) {
 })
 
 router.get('/', function(req, res){
-  res.render('transaction-status', {title: 'Status Transaksi', session:req.session})
+  res.redirect('/transactions/pulsa')
 })
 
 router.get('/sales', function(req, res){

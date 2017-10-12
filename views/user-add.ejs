@@ -4,8 +4,8 @@
 
     <body>
         <%include partial/navbar.ejs%>
+        <% if(session.role == 'admin') { %>
         <%include partial/dashboard.ejs%>
-            <% if(session.role == 'admin') { %>
                 <div class="form">
                     <form class="register-form" action="/users/signup" method="POST">
                         <input type="text" name="name" placeholder="Nama Lengkap" />
