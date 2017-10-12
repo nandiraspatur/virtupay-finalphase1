@@ -82,6 +82,7 @@ router.post('/status', function (req, res) {
     order: [['id', 'DESC']]
   }).then(result => {
     newNota = getNota(result.nota)
+    console.log(result.nota);
     newId = result.id + 1;
     Model.Transaction.create({
       nota: newNota,

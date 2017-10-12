@@ -302,7 +302,7 @@ td a:hover {
 .form-order .corder2{
   position: relative;
   z-index: 1;
-  background: #0050be;
+  background: #0cacde;
   max-width: 360px;
   margin: 75px auto;
   padding: 45px;
@@ -313,7 +313,7 @@ td a:hover {
 .form-order .corder3{
   position: relative;
   z-index: 1;
-  background: #a35ece;
+  background: #40c8f3;
   max-width: 360px;
   margin: 75px auto;
   padding: 45px;
@@ -455,7 +455,7 @@ footer .foot-wrap {
 }
 
 .contact .message {
-  height: 300px;
+  height: 320px;
   float: left;
   background: #0079b2;
   padding: 0 50px;
@@ -484,7 +484,7 @@ footer .foot-wrap {
 }
 
 .contact .contact-detail {
-  height: 300px;
+  height: 320px;
   float: left;
   background: #00c0fc;
   padding: 0 50px;
