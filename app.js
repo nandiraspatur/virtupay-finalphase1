@@ -14,10 +14,14 @@ app.use(express.static('./public'))
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
 const index = require('./routes/index');
 const user = require('./routes/user');
 const product = require('./routes/product');
+<<<<<<< HEAD
 const userproduct = require('./routes/userproduct');
+=======
+>>>>>>> f0edd1f98e9dc2c852989329a10fd06e997f3d99
 const transaction = require('./routes/transaction');
 
 function authentication(req, res, next) {
@@ -30,7 +34,10 @@ function authentication(req, res, next) {
 app.use('/', index);
 app.use('/users', user);
 app.use('/products', product);
+<<<<<<< HEAD
 app.use('/userproducts', userproduct);
+=======
+>>>>>>> f0edd1f98e9dc2c852989329a10fd06e997f3d99
 app.use('/transactions', transaction);
 
 app.listen(process.env.PORT || '3000', () => {
