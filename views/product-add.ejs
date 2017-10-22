@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+
+  <body>
+    <%include partial/navbar.ejs%>
+    <%include partial/dashboard.ejs%>
+    <div class="form">
+      <form class="login-form" action="/products/add" method="post">
+        <input type="text" name="productName" placeholder="Nama Produk">
+        <input type="text" name="nominal" placeholder="Nominal">
+        <input type="text" name="price" placeholder="Harga">
+        <input type="text" name="provider" placeholder="Provider">
+        <input type="text" name="productType" placeholder="Tipe Produk">
+        <button>Simpan</button>
+      </form>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+
+    <body>
+      <%include partial/navbar.ejs%>
+        <%include partial/dashboard.ejs%>
+
+            <div class="table">
+              <h3>Daftar Admin</h3>
+              <p><a href="/users/signup">Tambah User</a></p>
+                <table class="main-table">
+                  <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                        <th>Opsi</th>
+
+                    </tr>
+                    <% let no=0;
+                    dataUser.forEach(function(user, index) {
+                        if(user.role == 'admin') {%>
+                        <tr>
+                            <td>
+                                <%=++no%>
+                            </td>
+                            <td>
+                                <%=user.id%>
+                            </td>
+                            <td>
+                                <%=user.name%>
+                            </td>
+                            <td>
+                                <%=user.username%>
+                            </td>
+                            <td>
+                                <%=user.password%>
+                            </td>
+                            <td>
+                                <%=user.role%>
+                            </td>
+                            <td>
+                                <a href="/users/edit/<%=user.id%>"><i class="material-icons">mode_edit</i></a>
+                                <a href="/users/delete/<%=user.id%>"><i class="material-icons">delete_forever</i></a>
+                            </td>
+                        </tr>
+                        <%}})%>
+                </table>
+                <table class="main-table">
+                  <br>
+                  <h3>Daftar Pelanggan</h3>
+                  <p><a href="/users/signup">Tambah User</a></p>
+                    <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                        <th>Opsi</th>
+
+                    </tr>
+                    <% let i=0;
+                    dataUser.forEach(function(user, index) {
+                        if(user.role == 'customer') {%>
+                        <tr>
+                            <td>
+                                <%=++i%>
+                            </td>
+                            <td>
+                                <%=user.id%>
+                            </td>
+                            <td>
+                                <%=user.name%>
+                            </td>
+                            <td>
+                                <%=user.username%>
+                            </td>
+                            <td>
+                                <%=user.password%>
+                            </td>
+                            <td>
+                                <%=user.role%>
+                            </td>
+                            <td>
+                              <a href="/users/edit/<%=user.id%>"><i class="material-icons">mode_edit</i></a>
+                              <a href="/users/delete/<%=user.id%>"><i class="material-icons">delete_forever</i></a>
+                            </td>
+                        </tr>
+                        <%}})%>
+                </table>
+            </div>
+
+    </body>
+
+</html>

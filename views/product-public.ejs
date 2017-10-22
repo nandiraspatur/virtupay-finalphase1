@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <%include partial/head.ejs%>
+  <body>
+    <%include partial/navbar.ejs%>
+    <div class="table">
+      <table class="main-table">
+        <h2>Daftar dan Harga Produk</h2>
+        <tr>
+          <th>Nama Product</th>
+          <th>Provider</th>
+          <th>Harga</th>
+        </tr>
+        <%products.forEach(product=>{%>
+          <tr>
+            <td><%=product.productName%></td>
+            <td><%=product.provider%></td>
+            <td><%=product.price%></td>
+          </tr>
+          <%})%>
+        </table>
+    </div>
+  </body>
+</html>

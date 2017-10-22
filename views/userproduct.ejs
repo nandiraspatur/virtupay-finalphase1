@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+
+    <body>
+        <%include partial/navbar.ejs%>
+            <div class="form">
+                <form class="register-form" action="/transactions/<%=userId%>" method="POST">
+                    <input type="text" name="nota" placeholder="Nota" />
+                    <input type="text" name="total" placeholder="Total" />
+                    <input type="text" name="product" placeholder="Nota" />
+                    <input type="text" name="" placeholder="Total" />
+                    <button>Save</button>
+
+                </form>
+            </div>
+    </body>
+
+</html>

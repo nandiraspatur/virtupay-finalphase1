@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+
+  <body>
+    <%include partial/navbar.ejs%>
+        <div class="form">
+          <p><%=message%></p>
+          <form class="login-form" action="/login" method="POST">
+            <input name="username" type="text" placeholder="username" />
+            <input name="password" type="password" placeholder="password" />
+            <button>Masuk</button>
+            <p class="message">Belum daftar? <a href="/users/signup">Buat Akun</a></p>
+          </form>
+        </div>
+
+  </body>
+
+</html>

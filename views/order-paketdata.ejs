@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+<body>
+  <%include partial/navbar.ejs%>
+  <%include partial/order.ejs%>
+  <br>
+  <div class="form-order">
+    <div class="corder3">
+      <form class="register-form" action="/transactions/status" method="POST">
+        <select name="product">
+          <option value="">Pilih Nominal</option>
+          <%products.forEach(product=>{%>
+            <option value="<%=product.id%>"><%=product.productName%></option>
+            <%})%>
+          </select>
+          <input type="text" name="nohp" placeholder="No. Handphone/ID Pelanggan">
+          <button>Pesan</button>
+        </form>
+    </div>
+    </div>
+  </body>
+</html>

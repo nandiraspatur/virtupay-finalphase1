@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<%include partial/head.ejs%>
+
+  <body>
+    <%include partial/navbar.ejs%>
+      <%include partial/dashboard.ejs%>
+
+        <div class="table">
+          <h3>History Transaksi</h3>
+          <table class="main-table">
+            <tr>
+              <th>No</th>
+              <th>ID Transaksi</th>
+              <th>Tanggal</th>
+              <th>Phone</th>
+              <th>Total</th>
+              <th>Status</th>
+
+            </tr>
+            <% products.forEach(function(product, index) {%>
+              <%if(product.status == 'done'){%>
+                <tr>
+                  <td>
+                    <%= index%>
+                  </td>
+                  <td>
+                    <%=product.nota%>
+                  </td>
+                  <td>
+                    <%=product.createdAt%>
+                  </td>
+                  <% product.UserProducts.forEach(function(userproduct){ %>
+                    <td>
+                      <%=userproduct.phone%>
+                    </td>
+                  <%})%>
+                  <td>
+                    <%=product.total%>
+                  </td>
+                  <td>
+                    <%=product.status%>
+                  </td>
+                </tr>
+                <%}else{%>
+                  
+              <%}})%>
+          </table>
+
+  </body>
+
+</html>
